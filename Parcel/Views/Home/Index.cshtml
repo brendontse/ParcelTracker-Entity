@@ -1,6 +1,10 @@
+@{
+  Layout = "_Layout";
+}
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>Parcel Cost Calc</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   </head>
@@ -8,6 +12,9 @@
     <h1>Parcel Cost Calculator</h1>
     <p> This postage calculator allows the user to enter a the dimensions and weight of a package and receive a shipping cost. <br> Users are able to view a list of packages previously entered and click to view a page about a specific package</p>
     
-    <a href='/parcels/new'>Add a new parcel</a>
+    <p>@Html.ActionLink("Add Parcel", "Create", "Parcels")</p>
+    <p>@Html.ActionLink("Add new category", "Create", "Categories")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
   </body>
 </html>

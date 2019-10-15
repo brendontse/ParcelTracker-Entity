@@ -24,14 +24,14 @@ namespace Parcel.Controllers
             return View(model);
         }
 
-        [HttpGet("/parcels/new")]
+        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(_db.Categories, "CategoryId", "Name");
             return View();
         }
 
-        [HttpPost("/parcels/new")]
+        [HttpPost]
         public ActionResult Create(ParcelVariable newParcel)
         {
             if (newParcel.SideA > 0 && newParcel.SideB > 0 && newParcel.SideC >0 && newParcel.Weight > 0 && newParcel.Note.Length > 0)
@@ -43,22 +43,21 @@ namespace Parcel.Controllers
             
             return RedirectToAction("Index");
         }
-        [HttpGet("/parcels/edit/{id}")]
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var thisParcel = _db.ParcelTable.FirstOrDefault(parcels => parcels.ID == id);
             return View(thisParcel);
         }
-        [HttpPost("/parcels/edit/{id}")]
+        [HttpPost]
         public ActionResult Edit(ParcelVariable foundParcel)
         {
             _db.Entry(foundParcel).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index");
-
         }
 
-        [HttpGet("/parcels/delete/{id}")]
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             var thisParcel = _db.ParcelTable.FirstOrDefault(parcels => parcels.ID == id);

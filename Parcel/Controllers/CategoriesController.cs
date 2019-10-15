@@ -13,18 +13,18 @@ namespace Parcel.Models
             {
                 _db = db;
             }
-            [HttpGet("/categories")]
+            [HttpGet]
             public ActionResult Index()
             {
                 List<Category> model = _db.Categories.OrderBy(categories => categories.Name).ToList();
                 return View(model);
             }
-            [HttpGet("/categories/new")]
+            [HttpGet]
              public ActionResult Create()
                 {
                 return View();
                 }
-            [HttpPost("/categories/new")]
+            [HttpPost]
             public ActionResult Create(Category category)
             {
              _db.Categories.Add(category);
@@ -42,8 +42,7 @@ namespace Parcel.Models
                         thisParcel.Add(whatever);
                     }
                 }
-            
             return View(thisParcel);
-        }
+            }
          }
 }
